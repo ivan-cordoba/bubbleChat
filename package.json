@@ -1,0 +1,41 @@
+{
+  "name": "bubblechat",
+  "version": "1.0.0",
+  "description": "Chat client implemented with socket.io and possibly WebRTC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivan-cordoba/bubbleChat.git"
+  },
+  "author": "Ivan Cordoba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivan-cordoba/bubbleChat/issues"
+  },
+  "homepage": "https://github.com/ivan-cordoba/bubbleChat#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-transition-group": "^1.2.1",
+    "styled-components": "^3.3.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "morgan": "^1.9.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.5"
+  }
+}
