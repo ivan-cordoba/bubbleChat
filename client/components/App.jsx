@@ -1,7 +1,9 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import _ from 'lodash';
+import io from 'socket.io-client';
 import Message from './Message.jsx';
+import Input from './Input.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,14 +11,20 @@ export default class App extends React.Component {
     this.state = {
       messages: {},
     };
+    this.socket = io();
     this.addMessage = this.addMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
-    setInterval(this.addMessage, 100);
   }
 
-  addMessage() {
+  componentDidMount() {
+    this.socket.on('msg', (msg) => {
+      this.addMessage(msg);
+    });
+  }
+
+  addMessage(msg) {
     const id = uuid();
-    this.state.messages[id] = id;
+    this.state.messages[id] = msg;
     this.setState({
       messages: this.state.messages,
     });
@@ -32,6 +40,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <Input socket={this.socket} />
         {
           _.map(this.state.messages, (value, index) =>
             <Message key={index} value={value} id={index} removeMessage={this.removeMessage} />)

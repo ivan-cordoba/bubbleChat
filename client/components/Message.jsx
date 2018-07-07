@@ -15,6 +15,8 @@ const fadeOut = keyframes`
 
 const StyledMessage = styled.div`
   animation: ${fadeOut} 1s;
+  font-family: sans-serif;
+  font-size: 2em;
   position: absolute;
   width: 50px;
   left: ${props => props.w};
@@ -32,7 +34,7 @@ export default class Message extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.removeSelf, 1000);
+    setTimeout(this.removeSelf, 980);
   }
 
   removeSelf() {
