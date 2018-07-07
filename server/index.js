@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const socket = require('socket.io');
 const http = require('http');
+const xss = require('xss');
 
 const app = express();
 const httpServer = http.Server(app);
@@ -15,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 io.on('connection', (socket) => {
   socket.on('msg', (msg) => {
-    io.emit('msg', msg);
+    io.emit('msg', xss(msg));
   });
 });
 
