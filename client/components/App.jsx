@@ -4,6 +4,7 @@ import _ from 'lodash';
 import io from 'socket.io-client';
 import Message from './Message.jsx';
 import Input from './Input.jsx';
+import VideoChat from './VideoChat.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Input socket={this.socket} />
+        <VideoChat socket={this.socket} />
         {
           _.map(this.state.messages, (value, index) =>
             <Message key={index} value={value} id={index} removeMessage={this.removeMessage} />)
